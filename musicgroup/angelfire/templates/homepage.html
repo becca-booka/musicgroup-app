@@ -1,0 +1,160 @@
+<!--LEVEL2, TASK 23: CAPSTONE - DJANGO-->
+<!--how to use custom font, https://www.wikihow.com/Upload-Your-Own-Fonts-to-HTML-Using-CSS -->
+<!--font from 1001fonts.com:https://www.1001fonts.com/pixel-fonts.html -->
+<!--I got the neon angel wings image from upslash.com, https://unsplash.com/s/photos/angel -->
+<!--I got the pixelated guitar from Pixabay.com-->
+<!--had help from stackoverflow.com with alighning the navbar-header right, https://stackoverflow.com/questions/67063490/bootstrap-navbar-align-right-->
+<!--I'm having a bit of trouble with the navbar links on this page and on the merchpage.
+For some reason these pages wont show the logout link when the user is logged in, it still shows the
+register and login pages.You have to either go to the blog pages or the poll pages to log out (the link shows up there)
+I cant find nothing on the internet that can help me resolve this issue.-->
+<!--Other than that everything else seems to work.-->
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang=" en">
+    <!--open head section-->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content=
+        "width=device-width, initial-scale=1" />
+        <!--install bootstrap-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <!--style section-->
+        <style type="text/css">
+            body{
+                background-image: url('{% static "cloud2_edited.jpg" %}');
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin:25px;
+            }
+
+            nav {
+                box-shadow: 0 2px 4px 0 white;
+            }
+
+            @font-face {
+                
+                font-family: customfont;
+                src: url("ARCADECLASSIC.TTF" );
+            }
+
+            h1{
+                text-align: right;
+                font: size 150px;
+                font-family: 'arcadeclassic';
+                color:white;
+                margin-left: auto;
+            }
+
+            .navbar-header{
+                float: right;
+            }
+
+            ul{
+                font-family: 'arcadeclassic'; 
+                color:white;
+                font-size:x-large; 
+            }
+
+            a{
+    
+                font-family: 'arcadeclassic'; 
+                color:white; 
+                text-align:center; 
+            }
+        
+            p{
+                font: size 50px;
+                font-family: 'arcadeclassic'; 
+                color:white; 
+                text-align:center;
+            }
+
+            .card-text{
+               font-family:'arcadeclassic';
+               color: white;
+               text-align: center;
+            }
+
+
+            img{
+              border:5px solid white;
+            }
+
+            img:hover {
+              transform: scaleX(-1);
+            }
+        </style>
+        
+        <title>homepage</title>  
+    </head>
+    
+    <body>
+        <!--ROW1-->
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <div class="container">
+                    {% if not user.is_authenticated %}
+                    <a class="navbar-brand" href="{% url 'angelfire:login' %}">Login</a>
+                    <br>
+                    <br>
+                    <br>
+                    <a class="navbar-brand" href="{% url 'angelfire:register' %}">Register</a>
+                    {% else %}
+                    <a class="navbar-brand" href="{% url 'angelfire:logout' %}">Logout</a>
+                    {% endif %}
+                    <h1 class="navbar-header" style="margin-left:auto;">EARTH, WIND AND ANGELFIRE</h1>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </nav>    
+        </div>        
+        
+        <!--ROW2-->
+
+        <!--column1-->
+        <div class="row">
+            <div class="col-md-6 d-flex text-left">
+                <br>
+                <br>
+                <br>
+                <ul>
+                    <li><a href="{% url 'angelfire:merch' %}">shop our merch!</a></li>
+                    <br>
+                    <br>
+                    <li><a href="{% url 'angelfire:blog' %}">read our blog!</a></li>
+                    <br>
+                    <br>
+                    <li><a href="{% url 'angelfire:polls' %}">check out our polls!</a></li>
+                </ul>
+            </div>
+
+            <!--column2-->
+            <div class="col-md-3 d-flex text-center">
+                <br>
+                <br>
+                <br>
+                <img src="{% static 'pixel-1562563_1280.png' %}" style="width: 300px; height: 300px"
+                  alt="pixel guitar">
+            </div>
+
+            <!--column3-->
+            <div class="col-md-3 d-flex text-center">
+                <br>
+                <br>
+                <br>
+                <img src="{% static 'ludovica-dri-zDSuqfRNTJE-unsplash - Copy.jpg' %}"
+                    class="img-fluid rounded-circle mb-2"
+                    style="width: 300px; height: 300px"
+                    alt="photograph of neon angel wings" >
+            </div>
+
+
+        </div>
+
+    </body>
+</html>    

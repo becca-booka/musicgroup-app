@@ -1,0 +1,130 @@
+<!--REFERENCE-->
+<!--had help implementing custom font from wikihow:https://www.wikihow.com/Upload-Your-Own-Fonts-to-HTML-Using-CSS -->
+<!--font from 1001fonts.com:https://www.1001fonts.com/pixel-fonts.html -->
+{% load static %}
+<!DOCTYPE html>
+
+<html lang=" en">
+    <!--open head section-->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content=
+        "width=device-width, initial-scale=1" />
+        <!--install bootstrap-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <!--style section-->
+        <style>
+            body{
+                background-image: url('{% static "cloud2_edited.jpg" %}');
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin:25px;
+            }
+
+            @font-face {
+
+                font-family: customfont;
+                src:url ('ARCADECLASSIC.TTF');
+            }
+
+            a{
+                font-family: 'arcadeclassic'; 
+                color:white; 
+                text-align:center; 
+            }
+
+            ul{
+                border: 2px solid white;
+                font-size:x-large;
+                font-family: 'arcadeclassic'; 
+                color:white; 
+                text-align:left;
+            }
+
+            .shadow {
+                box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+            }
+
+            .card{
+                box-shadow: 0 16px 48px #E3E7EB;
+            }
+
+            h5{
+                font-size: x-large;
+                font-family: 'arcadeclassic';
+                color:white;
+                font-family: 'arcadeclassic';
+            }
+            
+            p{
+                font-size:x-large;
+                font-family: 'arcadeclassic'; 
+                color:white; 
+                text-align:center;
+            }
+
+            img{
+                border:5px solid white;
+            }
+
+            img:hover {
+                transform: scaleX(-1);
+            }
+
+            .masthead {
+                background:'' ;
+                height: auto;
+                padding-bottom: 15px;
+                box-shadow: 0 16px 48px #E3E7EB;
+                padding-top: 10px;
+                font-family: 'arcadeclassic';
+            
+            }
+
+        </style> 
+        <!--title section-->
+        <title>angelfire_blog</title>   
+    </head>
+
+    <body>
+
+         
+        {% block content %}
+        <!--content goes here-->
+
+        <!--make sidebar widget-->
+        {% block sidebar %}
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4 float-right ">
+            <div class="card my-4">
+                <div class="card-body">
+                     <img src="{% static 'angelfire_logo.jpg' %}"
+                     class="img-responsive;" style="border-radius: 50%; display: block; margin-left: auto; margin-right: auto; width: 50%;" 
+                     alt="earht, wind and angelfire logo" >
+                     <br>
+                     <br>
+                     <br>
+                     <ul>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'angelfire:logout' %}">logout</a></li>
+                        {% endif %}
+                        {% if not user.is_authenticated %}
+                        <li><a href="{% url 'angelfire:login' %}">login</a></li>
+                        <br>
+                        <li><a href="{% url 'angelfire:register' %}">register</a></li>
+                        {% endif %}
+                        <br>
+                        <li><a href="{% url 'angelfire:polls' %}">polls</a></li>
+                        <br>
+                        <li><a href="{% url 'angelfire:index' %}">back to homepage</a></li>
+                     </ul>
+             </div>
+        </div>
+        {% endblock sidebar %}
+
+        {% endblock content %}
+
+       
+    </body>
+</html>

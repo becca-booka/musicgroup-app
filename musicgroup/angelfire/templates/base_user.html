@@ -1,0 +1,104 @@
+<!--how to use custom font, https://www.wikihow.com/Upload-Your-Own-Fonts-to-HTML-Using-CSS -->
+<!--font from 1001fonts.com:https://www.1001fonts.com/pixel-fonts.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content=
+        "width=device-width, initial-scale=1" />
+        <!--install bootstrap-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+        <style>
+
+            body{
+        
+                background-image: url('{% static "cloud2_edited.jpg" %}');
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin:25px;
+            }
+
+            @font-face {
+                font-family: customfont;
+                src:url ('ARCADECLASSIC.TTF');
+            }
+
+            ul{
+                border: 2px solid white;
+                font-size:x-large;
+                font-family: 'arcadeclassic'; 
+                color:white; 
+                text-align:left;
+            }
+        
+            a{
+                font: size 50px;
+                font-family: 'arcadeclassic'; 
+                color:white; 
+                text-align:center; 
+            }
+        
+            p{
+                font: size 50px;
+                font-family: 'arcadeclassic'; 
+                color:white; 
+                text-align:center;
+            }
+
+            .card-text{
+               font-family:'arcadeclassic' ;
+               color: white;
+               text-align: center;
+            }
+
+            .shadow {
+               box-shadow: 0 4px 2px -2px white;
+            }
+
+            .card {
+               box-shadow: 0 16px 48px #E3E7EB;
+            }
+
+            h1{
+                border: 2px solid white;
+                font: size 150px;
+                font-family: 'arcadeclassic';
+                color:white;
+            }
+
+            label{
+                font: size 100px;
+                font-family: 'arcadeclassic'; 
+                color:white; 
+                text-align:center;
+            }
+            
+            h2{
+                border: 2px solid white;
+                font: size 150px;
+                font-family: 'arcadeclassic';
+                color:white; 
+            }
+
+
+        </style>
+        <title>user_authentication {% block title %} {% endblock %}</title>
+    </head>
+    <body>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 card mb-4 mt-3 left top">
+                    <div class="card-body">
+                        {% block content %} {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

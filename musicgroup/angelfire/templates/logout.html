@@ -1,0 +1,17 @@
+<!--reusing code from task22-->
+{% extends 'base_user.html' %}
+{% block content %}
+<h1>Goodbye!</h1>
+<br>
+<br>
+<br>
+<h2>Thank you for visiting!</h2>
+<br>
+<br>
+<br>
+<a class="navbar-brand" href="{% url 'angelfire:login' %}">Login</a>
+<br>
+<br>
+<br>
+<a href="{% url 'angelfire:index' %}">back to homepage!</a>
+{% endblock %}

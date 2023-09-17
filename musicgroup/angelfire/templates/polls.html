@@ -1,0 +1,23 @@
+<!--reusing code from task 21-->
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center">Poll Questions</h1>
+{% if latest_question_list %}
+{% for question in latest_question_list %}
+<div class="card">
+    <div class="card-body">
+        <p class="lead">{{question.question_text}}</p>
+
+        <a href="{% url 'angelfire:detail' question.id %}"
+        class="btn btn-primary btn-sm">Vote Now</a>
+        <a href="{% url 'angelfire:results' question.id %}"
+        class="btn btn-primary btn-sm">Results</a>
+    </div>
+</div>
+<br>
+<br>
+{% endfor %}
+{% else %}
+<p>No polls are available</p>
+{% endif %}
+{% endblock %}

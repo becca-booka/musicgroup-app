@@ -1,0 +1,20 @@
+<!--reusing code from task22-->
+{% extends 'base_user.html' %}
+{% block content %}
+<h1>Login as user</h1>
+
+<form action="{% url 'angelfire:authenticate_user' %}" method="post">
+  {% csrf_token %}
+  <label>Username</label>
+    <input type="text" name="username" placeholder="User" required>
+    <br>
+    <br>
+    <br>
+  <label>Password</label>
+    <input typre="password" name="password" required>
+    <br>
+    <br>
+    <br>
+  <input type="submit" value="Login" />
+</form>
+{% endblock %}

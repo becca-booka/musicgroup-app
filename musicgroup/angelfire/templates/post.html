@@ -1,0 +1,47 @@
+<!--reusing code from task 19-->
+{% extends "base_blog.html" %}
+{% block content %}
+<style>
+
+    @font-face {
+
+        font-family: customfont;
+        src:url ('ARCADECLASSIC.TTF');
+    }
+
+    .card-text{
+        font-family:'customfont' ;
+        color: white;
+        text-align: left;
+    }
+
+    .shadow {
+            box-shadow: 0 4px 2px -2px white;
+    }
+
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 card mb-4 mt-3 left top">
+            <div class="card-body">
+                <h1 style="color: white; font-family:arcadeclassic; text-align: left;">{% block title%} {{post.title}} {% endblock title %}</h1>
+                <p>{{post.date}}</p>
+                <p class="card-text">{{post.body|safe|linebreaks}}
+                   <br>
+                </p>
+                <p style="color: white; font-family: arcadeclassic;">{{post.signature}}</p>
+            </div>
+        </div>
+        {% block sidebar %} 
+        
+        {% include 'base_blog.html' %}
+
+        {% endblock sidebar %}
+    </div>
+</div>
+
+{% endblock content %}

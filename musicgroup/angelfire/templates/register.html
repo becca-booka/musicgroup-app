@@ -1,0 +1,29 @@
+<!--reusing code from task 22-->
+{% extends 'base_user.html' %}
+{% block content %}
+<h2>Sign up</h2>
+{% if error_message %}
+  <p class="text-danger">{{error_message}}</p>
+<br>
+{% endif %}    
+<form action="{% url 'angelfire:register_user' %}" method="post">
+  {% csrf_token %}
+
+  <label>Username</label>
+    <input type="text" name="username" placeholder="User" required>
+    <br>
+    <br>
+    <br>
+  <label>Password</label>
+    <input type="password" name="password" required>
+    <br>
+    <br>
+    <br>
+  <label>Name</label>
+    <input type="text" name="name" placeholder="Name">
+    <br>
+    <br>
+    <br>
+    <input type="submit" value="Register"/>           
+</form>
+{% endblock %}

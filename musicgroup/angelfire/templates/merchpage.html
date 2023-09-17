@@ -1,0 +1,423 @@
+<!--REFERENCES-->
+<!--how to place items on the rightside of the nav bar, https://www.geeksforgeeks.org/how-to-align-navbar-items-to-the-right-in-bootstrap-4/ -->
+<!--how to switch one image to another one, http://frontendfreecode.com/change-image-on-hover-with-bootstrap -->
+<!--how to use custom font, https://www.wikihow.com/Upload-Your-Own-Fonts-to-HTML-Using-CSS -->
+<!--font from 1001fonts.com:https://www.1001fonts.com/pixel-fonts.html -->
+<!--I used customink.com to make the merch, https://www.customink.com/-->
+<!--I got the neon angel wings image from upslash.com, https://unsplash.com/s/photos/angel -->
+<!--reused some code from task 17-->
+<!--I'm having a bit of trouble with the navbar links on this page and on the homepage.
+For some reason these pages wont show the logout link when the user is logged in, it still shows the
+register and login pages. You have to either go to the blog pages or the poll pages to log out (the link shows up there)
+I cant find anything on the internet that can help me resolve this issue.-->
+<!--Other than that everything else seems to work.-->
+<!--oh also the cart icon and the 'add to cart' buttons dont work, like in task 17-->
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <!--open head section-->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content=
+        "width=device-width, initial-scale=1" />
+        <!--install bootstrap-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <link rel="stylesheet" href=
+        "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+        <!--style section-->
+        <style>
+            body{
+                background-image: url('{% static "cloud2_edited.jpg" %}');
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin:25px;
+            }
+
+            @font-face {
+                font-family: customfont;
+                src:url ('ARCADECLASSIC.TTF');
+            }
+
+            a{
+    
+               font-family: 'arcadeclassic'; 
+               color:white; 
+               text-align:center;
+               font-size:x-large; 
+            }
+
+            div.polaroid {
+              width:100%;
+              background-color: white;
+              box-shadow: 0 4px 8px 0 white, 0 6px 20px 0 white;
+              margin-bottom: 25px;
+            }
+
+            div.container {
+              width:fit-content;
+              text-align:center;
+              padding: 5px 10px;
+            }
+
+            img{
+              border:5px solid white;
+            }
+
+            img:hover {
+              transform: scaleX(-1);
+            }
+
+            h2{
+              font-family:'arcadeclassic';
+              color: white;
+              font-weight: 100;
+            }
+
+            h3{
+              font-family: 'arcadeclassic';
+              font-size:xx-large;
+              color: white;
+              font-weight: 100; 
+            }
+
+            label{
+              font-family:'arcadeclassic';
+              font-size: x-large;
+              color: white;
+              font-weight: 100;
+            }
+
+            p{
+              align-items: center;
+              margin-right: auto;
+              font-family:'arcadeclassic';
+              font-size:medium;
+              font-weight: 100;
+              color: darkcyan;
+            }
+
+            button{
+              background-color:rgb(61, 202, 202);
+              border-radius: 8px;
+              border-color:deeppink;
+              color:deeppink ;
+              padding: 15px 32px;
+              font-family:'arcadeclassic';
+              font-size: xx-large;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              transition-duration: 0.4s;
+              box-shadow: 0 8px 16px 0 white, 0 6px 20px 0 white;
+            }
+
+            button:hover{
+              background-color:deeppink; 
+              color: rgb(61, 202, 202);
+            }
+
+            .picture2 {
+              display: none;
+            }
+
+            .thumbnail:hover .picture1 {
+              display: none;
+            }
+
+            .thumbnail:hover .picture2 {
+              display: block;
+            }
+
+            i{
+                color: white;
+                size: 100px;
+                font-family: 'arcadeclassic';
+                font-size: x-large;
+            }
+
+            nav {
+                box-shadow: 0 2px 4px 0 white;
+            }
+
+            input{
+                color: darkcyan;
+            }
+
+        </style>
+
+        <title>earth, wind and angelfire merchpage</title>
+    </head>
+    
+    <body>
+        
+        <!--NAVIGATION BAR-->
+        <div class="row">
+            <div class="col-md-6 d-flex align-items-center">
+                {% if user.is_authenticated %}
+                <a href="{% url 'angelfire:logout' %}">Logout</a>
+                {%  endif %}
+                <br>
+                <br>
+                {% if not user.is_authenticated %}
+                <a href="{% url 'angelfire:login' %}">Login</a>
+                <br>
+                <br>
+                <br>
+                <a href="{% url 'angelfire:register' %}">Register</a>
+                {% endif %}
+                <br>
+                <br>
+                <br>
+                <i  class="bi-cart" >Shopping Cart</i>
+                <br>
+                <br>
+                <br>
+                <a href="{% url 'angelfire:index' %}">back to homepage</a>
+            </div>
+        
+            <div class="col-md-6 d-flex align-items-center">
+                <img src="{% static 'angelfire_logo.jpg' %}"
+                    class="img-fluid rounded-circle mb-2"
+                    style="width: 300px; height: 300px" 
+                    alt="earht, wind and angelfire logo" >
+            </div>
+        </div>
+        
+
+        <!--ROW2-->
+        <div class="row">
+            <!--column1-->
+            <div class="col-md-4 d-flex text-center">
+                <br>
+                <br>
+                <br>
+                <!--insert image-->
+                <div class="thumbnail">
+                    <img src="{% static 'angelfire_pin.jpg' %}" class = "img-responsive" width = "100%"
+                    alt="earth, wind and angelfire pin">
+                    <div class="caption">
+                        <div class="text-wrap" style="width:fit-content">
+                            <p>earth, wind and angelfire pin</p>
+                            <p>R50.50</p>
+                        </div>   
+                    </div>
+                </div>
+                <button>Add to Cart</button>    
+            </div>
+
+            <!--column2-->
+            <div class="col-md-4 d-flex text-center">
+                <br>
+                <br>
+                <br>
+                <!--insert image-->
+                <div class="thumbnail">
+                    <div class="picture1">
+                        <img src="{% static 'shirtone_front.jpg' %}" class = "img-responsive" width = "100%"
+                        alt="cropped black sweatshirt with earth,wind and angelfire logo"> 
+                    </div> 
+                    
+                    <div class="picture2">
+                        <img src="{% static 'shirtone_back.jpg' %}" class = "img-responsive" width = "100%"
+                    alt="cropped black sweatshirt with pink and blue angel wings">
+                    </div>
+
+                    <div class="caption">
+                        <div class="text-wrap" style="width:fit-content">
+                            <p>black cropped sweatshirt</p>
+                            <p>R550.50</p>
+                        </div> 
+                    </div>
+                </div> 
+                <button>Add to Cart</button>    
+            </div>
+            
+            <!--column3-->
+            <div class="col-md-4 d-flex text-center">
+                <br>
+                <br>
+                <br>
+                <!--insert image-->
+                <div class="thumbnail">
+                    <div class="picture1">
+                        <img src="{% static 'shirttwo_front.jpg' %}" class = "img-responsive" width = "100%"
+                        alt="black sweatshirt with earth,wind and angelfire logo"> 
+                    </div> 
+                    
+                    <div class="picture2">
+                        <img src="{% static 'shirttwo_back.jpg' %}" class = "img-responsive" width = "100%"
+                    alt="black sweatshirt with pink and blue angel wings">
+                    </div>
+
+                    <div class="caption">
+                        <div class="text-wrap" style="width:fit-content">
+                            <p>black sweatshirt</p>
+                            <p>R650.50</p>
+                        </div> 
+                    </div>
+                </div> 
+                <button>Add to Cart</button>    
+            </div>
+            
+        </div>
+        
+
+        <!--ROW3-->
+        <div class="row">
+
+            <!--column1-->
+            <div class="col-md-4 d-flex text-center">
+                <br>
+                <br>
+                <br>
+                <!--insert image-->
+                <div class="thumbnail">
+                    <div class="picture1">
+                        <img src="{% static 'shirtthree_front.jpg' %}" class = "img-responsive" width = "100%"
+                        alt="black t-shirt with earth,wind and angelfire logo"> 
+                    </div> 
+                    
+                    <div class="picture2">
+                        <img src="{% static 'shirtthree_back.jpg' %}" class = "img-responsive" width = "100%"
+                    alt="black t-shirt with pink and blue angel wings">
+                    </div>
+
+                    <div class="caption">
+                        <div class="text-wrap" style="width:fit-content">
+                            <p>black t-shirt</p>
+                            <p>R350.50</p>
+                        </div> 
+                    </div>
+                </div> 
+                <button>Add to Cart</button>    
+            </div>
+
+            <!--column2-->
+            <div class="col-md-4 d-flex text-center">
+                <br>
+                <br>
+                <br>
+                <!--insert image-->
+                <div class="thumbnail">
+                    <div class="picture1">
+                        <img src="{% static 'shirtfour_front.jpg' %}" class = "img-responsive" width = "100%"
+                        alt="black t-shirt with earth,wind and angelfire logo"> 
+                    </div> 
+                    
+                    <div class="picture2">
+                        <img src="{% static 'shirtfour_back.jpg' %}" class = "img-responsive" width = "100%"
+                    alt="black t-shirt with pink and blue angel wings">
+                    </div>
+
+                    <div class="caption">
+                        <div class="text-wrap" style="width:fit-content">
+                            <p>black t-shirt 2</p>
+                            <p>R350.50</p>
+                        </div> 
+                    </div>
+                </div> 
+                <button>Add to Cart</button>    
+            </div>
+
+            <!--column2-->
+            <div class="col-md-4 d-flex text-center">
+                <br>
+                <br>
+                <br>
+                <!--insert image-->
+                <div class="thumbnail">
+                    <div class="picture1">
+                        <img src="{% static 'shirtfive_front.jpg' %}" class = "img-responsive" width = "100%"
+                        alt="cropped black t-shirt with earth,wind and angelfire logo"> 
+                    </div> 
+                    
+                    <div class="picture2">
+                        <img src="{% static 'shirtfive_back.jpg' %}" class = "img-responsive" width = "100%"
+                    alt="cropped black t-shirt with pink and blue angel wings">
+                    </div>
+
+                    <div class="caption">
+                        <div class="text-wrap" style="width:fit-content">
+                            <p>black cropped t-shirt</p>
+                            <p>R250.50</p>
+                        </div> 
+                    </div>
+                </div> 
+                <button>Add to Cart</button>    
+            </div>
+        </div>
+
+        <!--ROW4-->
+        <div class="row">
+
+            <!--column1-->
+            <div class="col-md-4 d-flex text-center">
+                <br>
+                <br>
+                <br>
+                <!--insert image-->
+                <div class="thumbnail">
+                    <div class="picture1">
+                        <img src="{% static 'shirtsix_front.jpg' %}" class = "img-responsive" width = "100%"
+                        alt="cropped black t-shirt with earth,wind and angelfire logo"> 
+                    </div> 
+                    
+                    <div class="picture2">
+                        <img src="{% static 'shirtsix_back.jpg' %}" class = "img-responsive" width = "100%"
+                    alt="cropped black t-shirt with pink and blue angel wings">
+                    </div>
+
+                    <div class="caption">
+                        <div class="text-wrap" style="width:fit-content">
+                            <p>black cropped t-shirt 2</p>
+                            <p>R550.50</p>
+                        </div> 
+                    </div>
+                </div> 
+                <button>Add to Cart</button>    
+            </div>
+        </div>
+        
+        <!--ROW5-->
+        <div class="row">
+            <div class="col-md-8">
+                <!--add a heading asking customer to contact seller-->
+                <h2>Talk to Us!</h2>
+                <br>
+                    <h3>Input your contact details below and send us a message if you have any questions! 
+                    We'd love to here from you!</h3>
+            <!--create form-->
+                <form>
+    
+                    <label>First name:</label><br>
+                    <input type="text">
+                    <br>
+                    <br>
+                    <label> <b>Last name: </b></lable><br>
+                    <input type="text">
+                    <br>
+                    <br>
+                    <label>Email:</label><br>
+                    <input type="text">
+                    <br>
+                    <br>
+                    <label><b>Message</b></lable><br>
+                    <textarea  rows="5" cols="40" spellcheck="true" maxlength="20" wrap="hard">
+                       write your message here!
+                    </textarea>
+                </form>
+            </div>
+    
+            <div class="col-md-4 d-flex text-center">
+                <br>
+                <br>
+                <br>
+                <img src="{% static 'ludovica-dri-zDSuqfRNTJE-unsplash.jpg'%}" class="img-responsive" style="border-radius:8px;"
+                alt="photograph of neon angel wings">
+            </div>
+        </div>
+    </body>
+</html>    

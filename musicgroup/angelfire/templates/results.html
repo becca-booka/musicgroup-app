@@ -1,0 +1,17 @@
+<!--reusing code from task21-->
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="mb-5 text-center">{{question.question_text}}</h1>
+<ul class ="list-group mb-5">
+    {% for choice in question.choice_set.all %}
+    <li class ="list-group-item" style="color: rgb(244, 111, 131);">
+        {{ choice.choice_text }} <span class ="badge badge-success float-right">{{ choice.votes }}
+            vote{{ choice.votes | pluralize }}</span>
+    </li>
+    {% endfor %}
+</ul>
+ 
+<a class ="btn btn-secondary" href ="{% url 'angelfire:polls' %}">Back To Polls</a>
+<a class ="btn btn-dark" href ="{% url 'angelfire:detail' question.id %}">Vote again?</a>
+<a class ="btn btn-dark" href ="{% url 'angelfire:index' %}">back to homepage</a>
+{% endblock %}

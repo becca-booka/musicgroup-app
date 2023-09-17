@@ -1,0 +1,91 @@
+<!--reusing code from task 19-->
+<!--had some help from reddit,https://www.reddit.com/r/django/comments/3fdeap/tuple_object_has_no_attribute_default_manager/ -->
+{% extends "base_blog.html" %}
+{% block content %}
+<style>
+
+    .head_text{
+        color: white;
+        font-family:'arcadeclassic';
+    }
+
+    @font-face {
+
+       font-family: customfont;
+       src:url ('ARCADECLASSIC.TTF');
+    }
+
+
+
+    body {
+        font-family: 'arcadeclassic' ;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+
+    .card-title{
+        font-family:'arcadeclassic' ;
+        color: white;
+    }
+    
+
+    .shadow {
+            box-shadow: 0 4px 2px -2px white;
+    }
+
+
+    .site-heading{
+        color: white;
+        font-family:'arcadeclassic' ;
+    }
+
+</style>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class=" site-heading my-4 mt-3 text-white">Earth, Wind and Angelfire Blog</h3>
+                    <p class="text-light">welcome to our blog!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 left">
+            <br>
+            <br>
+            {% for post in object_list %}
+            <div class="card-mb-4">
+                <div class="card-body">
+                    <h2 class="card-title" > {{post.title}}</h2>
+                    <p class="card-text text-left h6">{{post.date|date:"Y-m-d"}}</p>
+                    <p class="card-text text-left">{{post.body|slice:":200" }}</p>
+                    <a href="/blog/{{post.id}}" class="btn btn-primary">Read More &rarr;</a>
+                    <br>
+                    <br>
+                </div>
+            </div>   
+            {% endfor %}
+        </div>
+        <br>
+        <br>
+        <br>
+        {% block sidebar %} 
+        
+        {% include 'base_blog.html' %}
+        
+        {% endblock sidebar %}
+    </div>
+</div>    
+{% endblock %} 
