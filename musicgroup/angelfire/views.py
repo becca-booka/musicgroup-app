@@ -29,13 +29,13 @@ def authenticate_user(request):
        authentication library
        
        If the user is not found in the database:
-       * :returns: the registeration page
-       * rtype: html
+        * :returns: the registeration page
+          :rtype: html
        
        If the user is found in the database:
-       * :raises: login method
-       * :returns: the homepage of the Earth, Wind and Angelfire website
-         :rtype: html
+        * :raises: login method
+        * :returns: the homepage of the Earth, Wind and Angelfire website
+          :rtype: html
     """
     
     username= request.POST['username']

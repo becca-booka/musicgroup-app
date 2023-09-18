@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>angelfire package &mdash; musicgroup 23.08.08 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=0f37c6c7"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="angelfire.migrations package" href="angelfire.migrations.html" />
+    <link rel="prev" title="angelfire" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            musicgroup
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">angelfire</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">angelfire package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="angelfire.migrations.html">angelfire.migrations package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-angelfire.admin">angelfire.admin module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.admin.ChoiceInLine"><code class="docutils literal notranslate"><span class="pre">ChoiceInLine</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.admin.QuestionAdmin"><code class="docutils literal notranslate"><span class="pre">QuestionAdmin</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-angelfire.apps">angelfire.apps module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.apps.AngelfireConfig"><code class="docutils literal notranslate"><span class="pre">AngelfireConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-angelfire.models">angelfire.models module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.models.Choice"><code class="docutils literal notranslate"><span class="pre">Choice</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.models.Post"><code class="docutils literal notranslate"><span class="pre">Post</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.models.Question"><code class="docutils literal notranslate"><span class="pre">Question</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-angelfire.tests">angelfire.tests module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-angelfire.urls">angelfire.urls module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-angelfire.views">angelfire.views module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.views.PostDetail"><code class="docutils literal notranslate"><span class="pre">PostDetail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.views.PostList"><code class="docutils literal notranslate"><span class="pre">PostList</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.views.authenticate_user"><code class="docutils literal notranslate"><span class="pre">authenticate_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.views.detail"><code class="docutils literal notranslate"><span class="pre">detail()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.views.index"><code class="docutils literal notranslate"><span class="pre">index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.views.logout_request"><code class="docutils literal notranslate"><span class="pre">logout_request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.views.merch"><code class="docutils literal notranslate"><span class="pre">merch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.views.poll"><code class="docutils literal notranslate"><span class="pre">poll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.views.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.views.register_user"><code class="docutils literal notranslate"><span class="pre">register_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.views.results"><code class="docutils literal notranslate"><span class="pre">results()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.views.user_login"><code class="docutils literal notranslate"><span class="pre">user_login()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#angelfire.views.vote"><code class="docutils literal notranslate"><span class="pre">vote()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-angelfire">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">musicgroup</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">angelfire</a></li>
+      <li class="breadcrumb-item active">angelfire package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/angelfire.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="angelfire-package">
+<h1>angelfire package<a class="headerlink" href="#angelfire-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="angelfire.migrations.html">angelfire.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="angelfire.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="angelfire.migrations.html#module-angelfire.migrations.0001_initial">angelfire.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="angelfire.migrations.html#angelfire.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="angelfire.migrations.html#angelfire.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="angelfire.migrations.html#angelfire.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="angelfire.migrations.html#angelfire.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="angelfire.migrations.html#module-angelfire.migrations.0002_alter_post_signature">angelfire.migrations.0002_alter_post_signature module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="angelfire.migrations.html#angelfire.migrations.0002_alter_post_signature.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="angelfire.migrations.html#angelfire.migrations.0002_alter_post_signature.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="angelfire.migrations.html#angelfire.migrations.0002_alter_post_signature.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="angelfire.migrations.html#module-angelfire.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-angelfire.admin">
+<span id="angelfire-admin-module"></span><h2>angelfire.admin module<a class="headerlink" href="#module-angelfire.admin" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="angelfire.admin.ChoiceInLine">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">angelfire.admin.</span></span><span class="sig-name descname"><span class="pre">ChoiceInLine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/admin.html#ChoiceInLine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.admin.ChoiceInLine" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TabularInline</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.admin.ChoiceInLine.extra">
+<span class="sig-name descname"><span class="pre">extra</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#angelfire.admin.ChoiceInLine.extra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="angelfire.admin.ChoiceInLine.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#angelfire.admin.ChoiceInLine.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.admin.ChoiceInLine.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#angelfire.admin.ChoiceInLine.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#angelfire.models.Choice" title="angelfire.models.Choice"><code class="xref py py-class docutils literal notranslate"><span class="pre">Choice</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="angelfire.admin.QuestionAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">angelfire.admin.</span></span><span class="sig-name descname"><span class="pre">QuestionAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/admin.html#QuestionAdmin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.admin.QuestionAdmin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.admin.QuestionAdmin.fieldsets">
+<span class="sig-name descname"><span class="pre">fieldsets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[(None,</span> <span class="pre">{'fields':</span> <span class="pre">['question_text']}),</span> <span class="pre">('Date</span> <span class="pre">Information',</span> <span class="pre">{'classes':</span> <span class="pre">['collapse'],</span> <span class="pre">'fields':</span> <span class="pre">['pub_date']})]</span></em><a class="headerlink" href="#angelfire.admin.QuestionAdmin.fieldsets" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.admin.QuestionAdmin.inlines">
+<span class="sig-name descname"><span class="pre">inlines</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'angelfire.admin.ChoiceInLine'&gt;]</span></em><a class="headerlink" href="#angelfire.admin.QuestionAdmin.inlines" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="angelfire.admin.QuestionAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#angelfire.admin.QuestionAdmin.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-angelfire.apps">
+<span id="angelfire-apps-module"></span><h2>angelfire.apps module<a class="headerlink" href="#module-angelfire.apps" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="angelfire.apps.AngelfireConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">angelfire.apps.</span></span><span class="sig-name descname"><span class="pre">AngelfireConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/apps.html#AngelfireConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.apps.AngelfireConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.apps.AngelfireConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#angelfire.apps.AngelfireConfig.default_auto_field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.apps.AngelfireConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'angelfire'</span></em><a class="headerlink" href="#angelfire.apps.AngelfireConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-angelfire.models">
+<span id="angelfire-models-module"></span><h2>angelfire.models module<a class="headerlink" href="#module-angelfire.models" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="angelfire.models.Choice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">angelfire.models.</span></span><span class="sig-name descname"><span class="pre">Choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/models.html#Choice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.models.Choice" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>This class contains the database that stores the choices presented to the user in the poll section of the app
+with fields for the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The details of the question_text field that is stored in the question database - this field is the foreignkey
+that links the choice and question databases together</p></li>
+<li><p>The details stored in the choice_text field - method of input is a CharField with a max length of 200 characters</p></li>
+<li><p>This fields stores the counter that records how many times each choice is selected - method of input is a
+IntegerField that default setting is set to 0</p></li>
+</ul>
+</div></blockquote>
+<dl class="py exception">
+<dt class="sig sig-object py" id="angelfire.models.Choice.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#angelfire.models.Choice.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="angelfire.models.Choice.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#angelfire.models.Choice.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Choice.choice_text">
+<span class="sig-name descname"><span class="pre">choice_text</span></span><a class="headerlink" href="#angelfire.models.Choice.choice_text" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Choice.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#angelfire.models.Choice.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Choice.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#angelfire.models.Choice.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Choice.question">
+<span class="sig-name descname"><span class="pre">question</span></span><a class="headerlink" href="#angelfire.models.Choice.question" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Choice.question_id">
+<span class="sig-name descname"><span class="pre">question_id</span></span><a class="headerlink" href="#angelfire.models.Choice.question_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Choice.votes">
+<span class="sig-name descname"><span class="pre">votes</span></span><a class="headerlink" href="#angelfire.models.Choice.votes" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="angelfire.models.Post">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">angelfire.models.</span></span><span class="sig-name descname"><span class="pre">Post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/models.html#Post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.models.Post" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>This class contains the post database table for the blog section of the app with fields for
+the following (which are class variables):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The unique id that is automatically assigned to each post entry - this is the primary key of the database</p></li>
+<li><p>The title of the blog post - input method is a CharField with a max length of 140 characters</p></li>
+<li><p>The body of the blog post - input method is a TextField</p></li>
+<li><p>The signature of the writer that is automatically added at the bottom of each blog post - input method is
+a CharField with a max length of 140 characters, and is set to a default signature</p></li>
+<li><p>The date that the blog post is published - input method is a DateTimeField</p></li>
+</ul>
+</div></blockquote>
+<dl class="py exception">
+<dt class="sig sig-object py" id="angelfire.models.Post.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#angelfire.models.Post.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="angelfire.models.Post.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#angelfire.models.Post.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Post.body">
+<span class="sig-name descname"><span class="pre">body</span></span><a class="headerlink" href="#angelfire.models.Post.body" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Post.date">
+<span class="sig-name descname"><span class="pre">date</span></span><a class="headerlink" href="#angelfire.models.Post.date" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="angelfire.models.Post.get_next_by_date">
+<span class="sig-name descname"><span class="pre">get_next_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#angelfire.models.Post.get_next_by_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="angelfire.models.Post.get_previous_by_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#angelfire.models.Post.get_previous_by_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Post.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#angelfire.models.Post.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Post.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#angelfire.models.Post.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Post.signature">
+<span class="sig-name descname"><span class="pre">signature</span></span><a class="headerlink" href="#angelfire.models.Post.signature" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Post.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#angelfire.models.Post.title" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="angelfire.models.Question">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">angelfire.models.</span></span><span class="sig-name descname"><span class="pre">Question</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/models.html#Question"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.models.Question" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>This class contains the question database for the polls section of the app with fields for the following:</p>
+<ul class="simple">
+<li><p>The questions details - method of input is a CharField with a max length of 200 characters</p></li>
+<li><p>The date the question was published - method of input is a DateTimeField</p></li>
+</ul>
+<dl class="py exception">
+<dt class="sig sig-object py" id="angelfire.models.Question.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#angelfire.models.Question.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="angelfire.models.Question.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#angelfire.models.Question.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Question.choice_set">
+<span class="sig-name descname"><span class="pre">choice_set</span></span><a class="headerlink" href="#angelfire.models.Question.choice_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="angelfire.models.Question.get_next_by_pub_date">
+<span class="sig-name descname"><span class="pre">get_next_by_pub_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">pub_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#angelfire.models.Question.get_next_by_pub_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="angelfire.models.Question.get_previous_by_pub_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_pub_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">pub_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#angelfire.models.Question.get_previous_by_pub_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Question.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#angelfire.models.Question.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Question.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#angelfire.models.Question.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Question.pub_date">
+<span class="sig-name descname"><span class="pre">pub_date</span></span><a class="headerlink" href="#angelfire.models.Question.pub_date" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.models.Question.question_text">
+<span class="sig-name descname"><span class="pre">question_text</span></span><a class="headerlink" href="#angelfire.models.Question.question_text" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-angelfire.tests">
+<span id="angelfire-tests-module"></span><h2>angelfire.tests module<a class="headerlink" href="#module-angelfire.tests" title="Link to this heading"></a></h2>
+</section>
+<section id="module-angelfire.urls">
+<span id="angelfire-urls-module"></span><h2>angelfire.urls module<a class="headerlink" href="#module-angelfire.urls" title="Link to this heading"></a></h2>
+</section>
+<section id="module-angelfire.views">
+<span id="angelfire-views-module"></span><h2>angelfire.views module<a class="headerlink" href="#module-angelfire.views" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="angelfire.views.PostDetail">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">angelfire.views.</span></span><span class="sig-name descname"><span class="pre">PostDetail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/views.html#PostDetail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.views.PostDetail" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DetailView</span></code></p>
+<p>This class presents the details of the selected record (blog entry) that is stored in the post database and displays
+it on the post.html webpage.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.views.PostDetail.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#angelfire.views.PostDetail.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#angelfire.models.Post" title="angelfire.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.views.PostDetail.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'post.html'</span></em><a class="headerlink" href="#angelfire.views.PostDetail.template_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="angelfire.views.PostList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">angelfire.views.</span></span><span class="sig-name descname"><span class="pre">PostList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/views.html#PostList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.views.PostList" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code></p>
+<p>This class takes all the records stored in the post database and presents them as a list that is ordered
+by date publised in descending order, and displays them on the blog.html webpage.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.views.PostList.queryset">
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[&lt;Post:</span> <span class="pre">HI!!&gt;,</span> <span class="pre">&lt;Post:</span> <span class="pre">Testing,</span> <span class="pre">testing...&gt;]&gt;</span></em><a class="headerlink" href="#angelfire.views.PostList.queryset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="angelfire.views.PostList.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'blog.html'</span></em><a class="headerlink" href="#angelfire.views.PostList.template_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="angelfire.views.authenticate_user">
+<span class="sig-prename descclassname"><span class="pre">angelfire.views.</span></span><span class="sig-name descname"><span class="pre">authenticate_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/views.html#authenticate_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.views.authenticate_user" title="Link to this definition"></a></dt>
+<dd><p>This method authenticates the user by using the python authentication method from the django
+authentication library</p>
+<dl class="simple">
+<dt>If the user is not found in the database:</dt><dd><ul class="simple">
+<li><dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the registeration page</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>html</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>If the user is found in the database:</dt><dd><ul class="simple">
+<li><dl class="field-list simple">
+<dt class="field-odd">raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>login method</p>
+</dd>
+</dl>
+</li>
+<li><dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the homepage of the Earth, Wind and Angelfire website</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>html</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="angelfire.views.detail">
+<span class="sig-prename descclassname"><span class="pre">angelfire.views.</span></span><span class="sig-name descname"><span class="pre">detail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">question_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/views.html#detail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.views.detail" title="Link to this definition"></a></dt>
+<dd><p>This method displays the details of the selected record (question) stored in the question database,
+along with their corresponding records (choices) stored in the choices database, and displays them
+on the detail.html webpage for the user to read the question and select one of the presented choices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>question_id key: database key for the question record</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The webpage that displays the selected question and its corresponding choices</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>html</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="angelfire.views.index">
+<span class="sig-prename descclassname"><span class="pre">angelfire.views.</span></span><span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/views.html#index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.views.index" title="Link to this definition"></a></dt>
+<dd><p>This method takes the user to the homepage of the Earth, Wind and Angelfire website</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the homepage of the Earth, Wind and Angelfire website</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>html</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="angelfire.views.logout_request">
+<span class="sig-prename descclassname"><span class="pre">angelfire.views.</span></span><span class="sig-name descname"><span class="pre">logout_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/views.html#logout_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.views.logout_request" title="Link to this definition"></a></dt>
+<dd><p>This method logs the user out of the website</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>logout method</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the farewell page</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>html</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="angelfire.views.merch">
+<span class="sig-prename descclassname"><span class="pre">angelfire.views.</span></span><span class="sig-name descname"><span class="pre">merch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/views.html#merch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.views.merch" title="Link to this definition"></a></dt>
+<dd><p>This method takes logged in users the the merchandise page</p>
+<dl class="simple">
+<dt>If the user has been authenticated:</dt><dd><ul class="simple">
+<li><dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the merchandise webpage</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>html</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>If the user has not been authenticated:</dt><dd><ul class="simple">
+<li><dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the login page of the Earth, Wind and Angelfire website</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>html</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="angelfire.views.poll">
+<span class="sig-prename descclassname"><span class="pre">angelfire.views.</span></span><span class="sig-name descname"><span class="pre">poll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/views.html#poll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.views.poll" title="Link to this definition"></a></dt>
+<dd><p>This method displays all the records stored in the question database as a list
+that is ordered by date published in descending order and displayed on the polls.html webpage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The polls webpage of the Earth, Wind and Angelfire website</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>html</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="angelfire.views.register">
+<span class="sig-prename descclassname"><span class="pre">angelfire.views.</span></span><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/views.html#register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.views.register" title="Link to this definition"></a></dt>
+<dd><p>This method takes the user to the registration page</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The registration page</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>html</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="angelfire.views.register_user">
+<span class="sig-prename descclassname"><span class="pre">angelfire.views.</span></span><span class="sig-name descname"><span class="pre">register_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/views.html#register_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.views.register_user" title="Link to this definition"></a></dt>
+<dd><p>This method registers a new user and adds their details to the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the authentication method from the django authentication library</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>If user is not found in the database:</dt><dd><ul class="simple">
+<li><dl class="field-list simple">
+<dt class="field-odd">raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>create_user method</p>
+</dd>
+</dl>
+</li>
+<li><dl class="field-list simple">
+<dt class="field-odd">raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the login method</p>
+</dd>
+</dl>
+</li>
+<li><dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the homepage of the Earth, Wind and Angelfire website</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>html</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>If the user is found in the database:</dt><dd><ul class="simple">
+<li><dl class="field-list simple">
+<dt class="field-odd">raises error_message<span class="colon">:</span></dt>
+<dd class="field-odd"><p>user already in the database cannot create</p>
+</dd>
+</dl>
+</li>
+<li><dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the registration webpage</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>html</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="angelfire.views.results">
+<span class="sig-prename descclassname"><span class="pre">angelfire.views.</span></span><span class="sig-name descname"><span class="pre">results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">question_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/views.html#results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.views.results" title="Link to this definition"></a></dt>
+<dd><p>This method displays the results of the voting on the selected record (question) stored in the question database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Question</strong> (<em>str</em>) – The question of the poll</p>
+</dd>
+<dt class="field-even">Param<span class="colon">:</span></dt>
+<dd class="field-even"><p>question_id key: database key for the question record</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The webpage that displays the results of the voting on the selected record (question) stored in the
+question databse</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>html</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="angelfire.views.user_login">
+<span class="sig-prename descclassname"><span class="pre">angelfire.views.</span></span><span class="sig-name descname"><span class="pre">user_login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/views.html#user_login"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.views.user_login" title="Link to this definition"></a></dt>
+<dd><p>This method returns the login page for the Earth, Wind and Angelfire website</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="angelfire.views.vote">
+<span class="sig-prename descclassname"><span class="pre">angelfire.views.</span></span><span class="sig-name descname"><span class="pre">vote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">question_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/angelfire/views.html#vote"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#angelfire.views.vote" title="Link to this definition"></a></dt>
+<dd><p>This method collects votes for the selected poll</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param<span class="colon">:</span></dt>
+<dd class="field-odd"><p>question_id key: database key for the question record</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>If the user is logged in/has been authenticated:</dt><dd><ul class="simple">
+<li><dl class="field-list simple">
+<dt class="field-odd">raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>keyError: Error is raised if user does not select a choice</p>
+</dd>
+</dl>
+</li>
+<li><dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>input for the results method</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>If the user is not logged in/has not been authenticated:</dt><dd><ul class="simple">
+<li><dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the login webpage</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>html</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-angelfire">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-angelfire" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="angelfire" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="angelfire.migrations.html" class="btn btn-neutral float-right" title="angelfire.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Becca Naude.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
