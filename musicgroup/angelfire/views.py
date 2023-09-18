@@ -177,7 +177,7 @@ class PostDetail(DetailView):
     """This class presents the details of the selected record (blog entry) that is stored in the post database and displays 
        it on the post.html webpage.
     """
-    
+
     model=Post
     template_name="post.html"    
 
@@ -185,11 +185,12 @@ class PostDetail(DetailView):
 
 # POLL METHOD
 def poll(request):
-    """This method displays all the records stored in the question datase as a list
+    """This method displays all the records stored in the question database as a list
        that is ordered by date published in descending order and displayed on the polls.html webpage.
        
        :returns: The polls webpage of the Earth, Wind and Angelfire website
        :rtype: html
+       :rtype: list
     """
 
     latest_question_list= Question.objects.order_by('-pub_date')[:5]
