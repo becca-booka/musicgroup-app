@@ -3,7 +3,7 @@ version: '3'
 services:
     web:
         build: .
-        container_name: bold_faraday
+        container_name: musicgroup
         command: python manage.py runserver 0.0.0.0:8000
         volumes:
             - .:/app
